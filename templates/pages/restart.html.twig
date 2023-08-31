@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+   {% block title %}
+       Restart Module
+   {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center mt-4 mb-4">Card du module</h1>
+
+        <div class="card mb-3">
+            <div class="card-header justify-content-center d-flex">
+            <img src="{{ asset('assets/img/meteo_france_appli_pedagogiques.jpg')}}" class="card-img-top justify-content-center d-flex" alt="" style="height: 20em; width: 20em"></div>
+            <div class="card-body">
+                {{ form_start(form) }}
+                {# Ici appele du formulaire RestartModuleType #}
+                <h5 class="card-title mb-4">{{ form_row(form.name) }}</h5>
+                <p class="card-text">Température : {{ module.temperature }}°C, Vent : {{ module.wind }} KM/H, Humidité : {{ module.humidity }}%</p>
+                <p> {{ form_row (form.description) }}</p>
+                    <input type="hidden" name="_method" value="PUT">
+                    <div class="form-check form-switch">
+                        {{ form_row(form.isWorking) }}
+                        <div>
+                            <div class="mt-3 d-flex justify-content-evenly">
+                                <a class="mt-4 ms-5 btn btn-outline-danger" href="{{ path('app_dashboard') }}"> Annuler </a>
+                                {{ form_row(form.submit) }}
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

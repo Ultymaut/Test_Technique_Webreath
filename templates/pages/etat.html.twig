@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Etat Modules
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mt-4">Données du module {{ module.name }}</h1>
+    <div class="mt-4">
+        <canvas class="" id='moduleChart' width="400" height="400"></canvas>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Récupérer les données du module depuis les variables passées au template
+        const temperature = {{ temperature }};
+        const humidity = {{ humidity }};
+        const wind = {{ wind }};
+
+        // Créer le graphique en donuts avec Chart.js
+        document.addEventListener('DOMContentLoaded', function() {
+
+        var ctx = document.getElementById('moduleChart');
+        var myDonutChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: [ 'Humidité en %','Vent en KM/H','Temperature en °C' ],
+                datasets: [{
+                    data: [humidity, wind, temperature ],
+                    backgroundColor: ['#4e73df', '#1cc88a', '#e74a3b'],
+                    hoverBackgroundColor: ['#2e59d9', '#17a673', '#b91111'],
+                    hoverBorderColor: 'rgba(234, 236, 244, 1)',
+                }],
+            },
+            options: {
+                maintainAspectRatio: false,
+                tooltips: {
+                    backgroundColor: 'rgb(255,255,255)',
+                    bodyFontColor: '#858796',
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    displayColors: false,
+                },
+                legend: {
+                    display: false,
+                },
+            },
+        });
+        });
+    </script>
+{% endblock %}
