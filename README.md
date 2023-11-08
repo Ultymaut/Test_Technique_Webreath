@@ -11,12 +11,6 @@ Bonjour, voici les technologies dont je me sert :
 
 Veuillez vérifier si toutes les technologies nécessaires aux lignes de commandes se trouvent dans les variables d'environnement.
 
-Avant de démarrer le serveur, faites un : composer update.
+Avant de démarrer le serveur, faites un : composer update ou install.
 
 Pour démarrer un serveur, utilisez la commande : symfony server:start -d (le -d permet d'avoir toujours accès à la console).
-
-Ensuite, vous n'avez plus qu'à naviguer sur le site web. Si vous avez la moindre question ou problème, vous pouvez m'envoyer un e-mail à : baptiste.caron59@gmail.com ou m'appeler au 0671312872.
-
-Cordialement,
-
-CARON Baptiste
